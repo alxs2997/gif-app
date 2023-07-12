@@ -19,7 +19,7 @@ function App() {
   //3. jsx o render html de la aplicación
   return (
     <div className="App">
-      <h1>React App</h1>
+      <h1>React App!</h1>
     </div>
   )
 }
