@@ -10,36 +10,24 @@ y si por ejemplo, ocupo más palabras se utiliza camelCase*/
 los objetos primitivos no son funciones como:
 Los enteros, los chart, los strings, etc. 
 */ 
-
-const nombre = 'Alexis'
-
-
-const Ejemplo = <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-    Nulla asperiores autem tempore adipisci illo, ipsum debitis 
-    consectetur <b>quidem odio voluptatem</b> dignissimos 
-    suscipit dolorum fuga beatae iure officia. Molestiae,
-     velit amet?
-  </p>
-
-const array = [1,2,'ana ', 'pedro ', 'juan ']
-
+import { useState } from 'react';
 
 function App() {
   //un componente tiene 3 cosas:
-  //1.Estado
+  //1.Estado:
+  const [num, setNum] = useState(0); //useState es un hook, es una función que nos permite crear estados
+
+  const sum = () => {
+    setNum(num + 1);
+    //console.log(num);
+  }
   //2. Ciclo de vida
   
   //3. jsx o render html de la aplicación
   return ( //las llaves sirven para interpolar código js
     <div className="App"> 
-      <h1>Hola {nombre}!</h1>
-
-      {Ejemplo}
-      {array}
-      <br/>
-      {2*5}
-      <br/>
-      {1003/4}
+      <button onClick={sum}>+1</button>
+      <p>{num}</p>
     </div>
   )
   //si dentro de las llaves hay jsx, lo imprime de forma natural,
