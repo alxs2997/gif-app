@@ -15,19 +15,18 @@ import { useState } from 'react';
 function App() {
   //un componente tiene 3 cosas:
   //1.Estado:
-  const [num, setNum] = useState(0); //useState es un hook, es una función que nos permite crear estados
-
-  const sum = () => {
-    setNum(num + 1);
-    //console.log(num);
+  const [valorInput, setValorInput] = useState('');
+  const onChange = (evento)=> {
+    const valor = evento.target.value;
+    setValorInput(valor);
   }
   //2. Ciclo de vida
   
   //3. jsx o render html de la aplicación
   return ( //las llaves sirven para interpolar código js
     <div className="App"> 
-      <button onClick={sum}>+1</button>
-      <p>{num}</p>
+      <input value={valorInput} onChange={onChange} />
+      <p>{valorInput}</p>
     </div>
   )
   //si dentro de las llaves hay jsx, lo imprime de forma natural,
