@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Buscador } from './Buscador';
+import { GridGift } from './GridGift';
 
 function App() {
   //un componente tiene 3 cosas:
@@ -7,7 +9,7 @@ function App() {
   //Para consumir API de giphy
   const [gift, setGift] = useState([]);
   //2. Ciclo de vida
-  
+
   //3. jsx o render html de la aplicación
   const onChange = (event) => {
     const Valor = event.target.value;
@@ -21,7 +23,7 @@ function App() {
     const data = await response.json();
     return data.data;
   }
-   
+
   const onSubmit = async (evento) => {
     evento.preventDefault();
     const gift = await getGift(valorInput);
@@ -29,24 +31,12 @@ function App() {
   }
 
 
-    //JSX
+  //JSX
   return ( //las llaves sirven para interpolar código js
-    <div className="App"> 
-     <form onSubmit={onSubmit}>
-      <label>Busca tú Gift: </label>
-        <input type="text" onChange={onChange} value={valorInput}/>
-     </form>
+    <div className="App">
 
-     { /*Si el valor de gift es verdadero, entonces imprime el map*/ 
-        gift && gift.map((gift) => {
-          return (
-            <div key={gift.id}>
-              <img src={gift.images.downsized_medium.url} alt={gift.title}/>
-            </div>
-          )
-        }
-        )
-     }
+      <Buscador valorInput={valorInput} onChange={onChange} onSubmit={onSubmit}/>
+      <GridGift gift={gift} />
     </div>
   )
   //si dentro de las llaves hay jsx, lo imprime de forma natural,
@@ -62,6 +52,6 @@ function App() {
 *Los booleanos
 *Los null
 *Los undefined
-*/ 
+*/
 
 export default App
