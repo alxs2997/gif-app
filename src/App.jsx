@@ -5,7 +5,7 @@ function App() {
   //1.Estado:
   const [valorInput, setValorInput] = useState(''); //useState es un hook
   //Para consumir API de giphy
-  const [gift, setGift] = useState();
+  const [gift, setGift] = useState([]);
   //2. Ciclo de vida
   
   //3. jsx o render html de la aplicación
@@ -33,8 +33,20 @@ function App() {
   return ( //las llaves sirven para interpolar código js
     <div className="App"> 
      <form onSubmit={onSubmit}>
+      <label>Busca tú Gift: </label>
         <input type="text" onChange={onChange} value={valorInput}/>
      </form>
+
+     { /*Si el valor de gift es verdadero, entonces imprime el map*/ 
+        gift && gift.map((gift) => {
+          return (
+            <div key={gift.id}>
+              <img src={gift.images.downsized_medium.url} alt={gift.title}/>
+            </div>
+          )
+        }
+        )
+     }
     </div>
   )
   //si dentro de las llaves hay jsx, lo imprime de forma natural,
