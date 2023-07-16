@@ -15,8 +15,8 @@ function App() {
       { //si la variable cargando es verdadera, imprime el div con la clase loader-container
         estaCargando ?
           //se puede hacer con o sin parentesis
-          ( <div class="loader-container">
-          <div class="loader"></div>
+          ( <div className="loader-container">
+          <div className="loader"></div>
           </div>)
           //si no (es falso), imprime los gifts que buscamos
 
